@@ -1,0 +1,12 @@
+---
+title: "Posts"
+listing:
+  contents: posts
+  feed: true
+  sort: "date desc"
+  type: default
+  sort-ui: false
+  filter-ui: false
+---
+
+

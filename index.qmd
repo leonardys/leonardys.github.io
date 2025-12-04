@@ -1,0 +1,12 @@
+---
+about:
+  template: solana
+---
+
+## Welcome!
+
+Hello! I'm Leonard Yulianus and this is where I share my thoughts and learning journey.
+
+You can expect most of my content to fall into two major categories: Data Analytics and Computer Science.
+
+If we share the same interests, you might want to check my [posts](blog.html).
