@@ -18,6 +18,48 @@
     "href": "blog.html",
     "title": "Posts",
     "section": "",
-    "text": "No matching items"
+    "text": "Relearning Programming\n\n\nMy first impression of Structure and Interpretation of Computer Programs (SICP).\n\n\n\n\n\n\n\n\nDec 13, 2025\n\n\nLeonard Yulianus\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/relearning-programming/index.html",
+    "href": "posts/relearning-programming/index.html",
+    "title": "Relearning Programming",
+    "section": "",
+    "text": "I’ve read many great things about the Structure and Interpretation of Computer Programs (SICP), and since it’s available for free, I decided to dive in.\nSICP is a legendary computer science textbook, originally used to teach programming at MIT. The book aims to teach you how to think about programming. It introduces powerful abstractions and design principles through the Scheme programming language, a minimalist dialect of Lisp.\nThe book has inspired many programmers (beginners and experienced alike) to revisit the basics and understand programming at a deeper level, beyond mere syntax and frameworks. They mention it as transformative, as something that fundamentally changed how they approach problem-solving. For that reason alone, it seemed worth the time."
+  },
+  {
+    "objectID": "posts/relearning-programming/index.html#why-though",
+    "href": "posts/relearning-programming/index.html#why-though",
+    "title": "Relearning Programming",
+    "section": "",
+    "text": "I’ve read many great things about the Structure and Interpretation of Computer Programs (SICP), and since it’s available for free, I decided to dive in.\nSICP is a legendary computer science textbook, originally used to teach programming at MIT. The book aims to teach you how to think about programming. It introduces powerful abstractions and design principles through the Scheme programming language, a minimalist dialect of Lisp.\nThe book has inspired many programmers (beginners and experienced alike) to revisit the basics and understand programming at a deeper level, beyond mere syntax and frameworks. They mention it as transformative, as something that fundamentally changed how they approach problem-solving. For that reason alone, it seemed worth the time."
+  },
+  {
+    "objectID": "posts/relearning-programming/index.html#my-initial-impression",
+    "href": "posts/relearning-programming/index.html#my-initial-impression",
+    "title": "Relearning Programming",
+    "section": "My Initial Impression",
+    "text": "My Initial Impression\nI’m still early in the first chapter, having just finished the first section titled “The Elements of Programming.” Despite being new to Scheme, the text is surprisingly easy to follow. Yet, two things have been genuinely awkward as I adjust.\nThe first is getting used to writing code in prefix notation 1. In most languages, we write expressions in infix notation, such as 1 + 2 * 3. But in Scheme, we write the same expression as (+ 1 (* 2 3)). The operator comes first, followed by its operands. It feels alien to what I’m used to. However, once I get over this, I can see the benefits of the consistency and simplicity of the notation. The language design explicitly requires you to use parentheses to denote procedure application, which forces you to specify the exact order of operations. Taking out the guesswork from reading code.\nThe second is the ever-present parentheses. At first glance, Scheme code looks like a mountain of nested parentheses, which can be overwhelming. However, modern text editors usually have the capabilities to highlight matching pairs and to automatically close opening parentheses."
+  },
+  {
+    "objectID": "posts/relearning-programming/index.html#trying-it-out",
+    "href": "posts/relearning-programming/index.html#trying-it-out",
+    "title": "Relearning Programming",
+    "section": "Trying It Out",
+    "text": "Trying It Out\nI tried to do Problem Zero of Project Euler (the one presented on the register page).\n\n\n\n\n\n\nA number is a perfect square, or a square number, if it is the square of a positive integer. For example, \\(25\\) is a square number because \\(5^2 = 5 \\times 5 = 25\\); it is also an odd square.\nThe first 5 square numbers are: \\(1, 4, 9, 16, 25\\), and the sum of the odd squares is \\(1 + 9 + 25 = 35\\).\nAmong the first 658 thousand square numbers, what is the sum of all the odd squares?\n\n\n\nIn Python, I can easily come up with the solution. Looping through odd numbers, as only the squares of odd numbers can be odd.\ndef sum_odd_squares(n):\n    sum_of_squares = 0\n    for i in range(1, n + 1, 2):\n        sum_of_squares += i * i\n\n    return sum_of_squares\n\n# Call the function\nprint(sum_odd_squares(658000))\nFor Scheme, I had to rethink the solution and utilize recursion. After considerably longer time, I came up with this solution.\n(define (sum-odd-squares start end sum)\n  (if (&gt; start end)\n    sum\n    (sum-odd-squares\n      (+ start 2)\n      end\n      (+ sum (* start start)))))\n\n; Call the procedure\n(display (sum-odd-squares 1 658000 0))"
+  },
+  {
+    "objectID": "posts/relearning-programming/index.html#my-expectation",
+    "href": "posts/relearning-programming/index.html#my-expectation",
+    "title": "Relearning Programming",
+    "section": "My Expectation",
+    "text": "My Expectation\nI don’t expect to become an expert in Scheme or use it professionally at work. What matters is the knowledge SICP offers: a deeper understanding of computation, system design, and mastery of abstraction and problem-solving techniques. If reading SICP shifts how I approach problem-solving and makes me a more thoughtful programmer, then the time spent learning Scheme will have been worthwhile. The language is merely the means; clarity of thinking is the ultimate end."
+  },
+  {
+    "objectID": "posts/relearning-programming/index.html#footnotes",
+    "href": "posts/relearning-programming/index.html#footnotes",
+    "title": "Relearning Programming",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nPlacing the operator to the left of the operands↩︎"
   }
 ]

@@ -10,6 +10,147 @@
 <atom:link href="https://leonardys.github.io/blog.xml" rel="self" type="application/rss+xml"/>
 <description>A blog built with Quarto</description>
 <generator>quarto-1.8.26</generator>
-<lastBuildDate>Thu, 04 Dec 2025 04:44:13 GMT</lastBuildDate>
+<lastBuildDate>Fri, 12 Dec 2025 17:00:00 GMT</lastBuildDate>
+<item>
+  <title>Relearning Programming</title>
+  <dc:creator>Leonard Yulianus</dc:creator>
+  <link>https://leonardys.github.io/posts/relearning-programming/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="why-though" class="level2">
+<h2 class="anchored" data-anchor-id="why-though">Why Though?</h2>
+<p>I’ve read many great things about the Structure and Interpretation of Computer Programs (SICP), and since it’s <a href="https://web.mit.edu/6.001/6.037/sicp.pdf">available for free</a>, I decided to dive in.</p>
+<p>SICP is a legendary computer science textbook, originally used to teach programming at MIT. The book aims to teach you <em>how to think</em> about programming. It introduces powerful abstractions and design principles through the Scheme programming language, a minimalist dialect of Lisp.</p>
+<p>The book has inspired many programmers (beginners and experienced alike) to revisit the basics and understand programming at a deeper level, beyond mere syntax and frameworks. They mention it as transformative, as something that fundamentally changed how they approach problem-solving. For that reason alone, it seemed worth the time.</p>
+</section>
+<section id="my-initial-impression" class="level2">
+<h2 class="anchored" data-anchor-id="my-initial-impression">My Initial Impression</h2>
+<p>I’m still early in the first chapter, having just finished the first section titled “The Elements of Programming.” Despite being new to Scheme, the text is surprisingly easy to follow. Yet, two things have been genuinely awkward as I adjust.</p>
+<p>The first is getting used to writing code in prefix notation <sup>1</sup>. In most languages, we write expressions in infix notation, such as <code>1 + 2 * 3</code>. But in Scheme, we write the same expression as <code>(+ 1 (* 2 3))</code>. The operator comes first, followed by its operands. It feels alien to what I’m used to. However, once I get over this, I can see the benefits of the consistency and simplicity of the notation. The language design explicitly requires you to use parentheses to denote procedure application, which forces you to specify the exact order of operations. Taking out the guesswork from reading code.</p>
+<p>The second is the ever-present parentheses. At first glance, Scheme code looks like a mountain of nested parentheses, which can be overwhelming. However, modern text editors usually have the capabilities to highlight matching pairs and to automatically close opening parentheses.</p>
+</section>
+<section id="trying-it-out" class="level2">
+<h2 class="anchored" data-anchor-id="trying-it-out">Trying It Out</h2>
+<p>I tried to do Problem Zero of Project Euler (the one presented on the register page).</p>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>A number is a perfect square, or a square number, if it is the square of a positive integer. For example, <img src="https://latex.codecogs.com/png.latex?25"> is a square number because <img src="https://latex.codecogs.com/png.latex?5%5E2%20=%205%20%5Ctimes%205%20=%2025">; it is also an odd square.</p>
+<p>The first 5 square numbers are: <img src="https://latex.codecogs.com/png.latex?1,%204,%209,%2016,%2025">, and the sum of the odd squares is <img src="https://latex.codecogs.com/png.latex?1%20+%209%20+%2025%20=%2035">.</p>
+<p>Among the first <strong>658 thousand</strong> square numbers, what is the sum of all the odd squares?</p>
+</div>
+</div>
+</div>
+<p>In Python, I can easily come up with the solution. Looping through odd numbers, as only the squares of odd numbers can be odd.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> sum_odd_squares(n):</span>
+<span id="cb1-2">    sum_of_squares <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb1-3">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> i <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, n <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>):</span>
+<span id="cb1-4">        sum_of_squares <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> i <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> i</span>
+<span id="cb1-5"></span>
+<span id="cb1-6">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> sum_of_squares</span>
+<span id="cb1-7"></span>
+<span id="cb1-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Call the function</span></span>
+<span id="cb1-9"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(sum_odd_squares(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">658000</span>))</span></code></pre></div></div>
+<p>For Scheme, I had to rethink the solution and utilize recursion. After considerably longer time, I came up with this solution.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode scheme code-with-copy"><code class="sourceCode scheme"><span id="cb2-1">(<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">define</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"> </span>(sum-odd-squares start end sum)</span>
+<span id="cb2-2">  (<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> (<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> start end)</span>
+<span id="cb2-3">    sum</span>
+<span id="cb2-4">    (sum-odd-squares</span>
+<span id="cb2-5">      (<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> start <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span>
+<span id="cb2-6">      end</span>
+<span id="cb2-7">      (<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> sum (<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> start start)))))</span>
+<span id="cb2-8"></span>
+<span id="cb2-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">; Call the procedure</span></span>
+<span id="cb2-10">(<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">display</span> (sum-odd-squares <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">658000</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>))</span></code></pre></div></div>
+</section>
+<section id="my-expectation" class="level2">
+<h2 class="anchored" data-anchor-id="my-expectation">My Expectation</h2>
+<p>I don’t expect to become an expert in Scheme or use it professionally at work. What matters is the knowledge SICP offers: a deeper understanding of computation, system design, and mastery of abstraction and problem-solving techniques. If reading SICP shifts how I approach problem-solving and makes me a more thoughtful programmer, then the time spent learning Scheme will have been worthwhile. The language is merely the means; clarity of thinking is the ultimate end.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Placing the operator to the left of the operands↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>programming</category>
+  <guid>https://leonardys.github.io/posts/relearning-programming/</guid>
+  <pubDate>Fri, 12 Dec 2025 17:00:00 GMT</pubDate>
+  <media:content url="https://leonardys.github.io/posts/relearning-programming/SICP.jpg" medium="image" type="image/jpeg"/>
+</item>
 </channel>
 </rss>
