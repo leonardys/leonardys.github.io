@@ -12,6 +12,9 @@ website:
         href: https://www.linkedin.com/in/leonardys
       - icon: rss
         href: index.xml
+  google-analytics:
+    tracking-id: "G-YJ31ZEQ0PZ"
+    anonymize-ip: true
 
 format:
   html:
